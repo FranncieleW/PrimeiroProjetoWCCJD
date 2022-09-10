@@ -13,10 +13,10 @@ let resultado = Number(req.query.resultado);
 
 function fLerValor() { 
     do {
-        valor = Number(prompt("Informe um numero, para realizar a conversão"));
+        valor = Number(console.log("Informe um numero, para realizar a conversão"));
         if (valor < 0 || parseInt(valor) != parseFloat(valor)) {
 
-            alert("Valor informado é invalido");
+            console.log("Valor informado é invalido");
         }
         console.log(valor);
 
@@ -28,11 +28,11 @@ fLerValor();
 
 fLerTipoInicial = () => { 
     do {
-        tipoInicial = prompt("Qual o tipo do valor informado? Digite H para hectares, A para acres");
+        tipoInicial = console.log("Qual o tipo do valor informado? Digite H para hectares, A para acres");
         tipoInicial = tipoInicial.toUpperCase(); 
         if (tipoInicial != 'H' && tipoInicial != 'A') {  
 
-            alert("O valor informado é inválido");
+            console.log("O valor informado é inválido");
 
         }
         console.log(tipoInicial);
@@ -44,11 +44,11 @@ fLerTipoInicial();
 fLerTipoFinal = () => { 
 
     do {
-        tipoFinal = prompt("Você deseja converter o valor inicial em que? Digite H para hectares, A para acres");
+        tipoFinal = console.log("Você deseja converter o valor inicial em que? Digite H para hectares, A para acres");
         tipoFinal = tipoFinal.toUpperCase(); 
         if (tipoFinal != 'H' && tipoFinal != 'A') { 
 
-            alert("O valor informado é inválido");
+            console.log("O valor informado é inválido");
 
         }
         console.log(tipoFinal);
@@ -79,18 +79,17 @@ fRealizaConversao = () => {
     
     }
     if (tipoInicial == tipoFinal) {
-        alert("Não é possível transformar! O tipo do valor inical precisa ser diferente do tipo final");
+        console.log("Não é possível transformar! O tipo do valor inical precisa ser diferente do tipo final");
         resultado = valor / valor; 
     }
 
-    return res.json({
+    return res.send(json)({
         resultado
     });
 }
-}
-
 fRealizaConversao(); 
 console.log(resultado);
+});
 
 console.log("O número informado é: ", valor);
 console.log("<br>", "Transfomar: ", tipoInicial, " para: ", tipoFinal);
